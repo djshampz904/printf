@@ -1,12 +1,5 @@
 #include "main.h"
 
-/**
- * _printf - mimic printf
- *
- * @format: string
- * Return: character printed
- */
-
 int _printf(char *format, ...)
 {
     va_list args;
@@ -23,6 +16,10 @@ int _printf(char *format, ...)
                     break;
                 case 's':
                     count += printf("%s", va_arg(args, char *));
+                    break;
+                case 'd':
+                case 'i':
+                    count += printf("%d", va_arg(args, int));
                     break;
                 case '%':
                     count += putchar('%');
@@ -43,3 +40,4 @@ int _printf(char *format, ...)
 
     return count;
 }
+
